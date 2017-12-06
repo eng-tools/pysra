@@ -58,7 +58,7 @@ for wave_field in wave_fields:
         surface = p.location('outcrop', index=0)
         bedrock = p.location(wave_field, index=-1)
 
-        calc(motion, p.data, bedrock)
+        calc(motion, p, bedrock)
         trans_funcs.append(calc.calc_accel_tf(bedrock, surface))
     records.append(
         (wave_field, np.abs(trans_funcs[1]) / np.abs(trans_funcs[0]))
