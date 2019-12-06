@@ -25,7 +25,7 @@ import collections
 import numpy as np
 import scipy.integrate
 
-import cyko
+
 
 from .motion import TimeSeriesMotion, WaveField, GRAVITY
 
@@ -315,6 +315,7 @@ class FourierAmplitudeSpectrumOutput(LocationBasedOutput):
         Output.__call__(self, calc, name)
         loc = self._get_location(calc)
         tf = calc.calc_accel_tf(calc.loc_input, loc)
+        import cyko
         smoothed = cyko.smooth(
             self.freqs,
             calc.motion.freqs,
@@ -397,6 +398,7 @@ class AccelTransferFunctionOutput(RatioBasedOutput):
         if self._ko_bandwidth is None:
             tf = np.interp(self.freqs, calc.motion.freqs, tf)
         else:
+            import cyko
             tf = cyko.smooth(
                 self.freqs, calc.motion.freqs, tf, self._ko_bandwidth)
 

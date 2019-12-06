@@ -19,8 +19,8 @@ setup(
     url='http://github.com/arkottke/pysra',
     packages=find_packages(),
     install_requires=[
-        'cython',
-        'cyko',
+        # 'cython',
+        # 'cyko',
         'matplotlib',
         'numpy',
         'pyrvt',
